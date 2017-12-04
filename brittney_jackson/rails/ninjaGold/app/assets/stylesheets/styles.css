@@ -1,0 +1,46 @@
+*{
+	margin: 10px auto;
+	padding: 5px;
+	color: white;
+	background: black;
+	border-radius: 10px;
+}
+p{
+	margin: 0px auto;
+}
+body{
+	width: 1000px ;
+	border: 5px solid grey;
+	background: grey;
+}
+#title{
+	margin:auto;
+	text-align: center;
+	/*padding-left: 400px;*/
+}
+	#title h1{
+		color:red;
+	}
+.box{
+	display: inline-block;
+	width: 230px;
+	margin: auto;
+	border: 2px solid white;
+	background: black;
+	text-align: center;
+}
+	.box h3{
+		color: red;
+		margin-bottom: 0px;
+	}
+#activity{
+	border: 2px solid red;
+	border-radius: 5px;
+	margin: auto;
+	padding: 5px;
+	height: 200px;
+	overflow-y: scroll;
+}
+	#activity h3{
+		color: red;
+	}

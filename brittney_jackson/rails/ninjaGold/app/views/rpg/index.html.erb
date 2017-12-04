@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ninja GOLD!</title>
+	</head>
+	<body>
+		<%= stylesheet_link_tag 'styles.css' %>
+		<div id="title">
+			<h1>Ninja Gold!</h1>
+			<form action="/reset" method="post">
+				<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+				<h3>Your Gold: <%= session[:total] %></h3>
+				<input type="submit" name="ninja[clear]" value="Reset Game"/>
+			</form>
+		</div>
+			
+		<div id="row">
+			<div class="box">
+				<h3>Farm</h3>
+				<p>(earns 10-20 gold)</p>
+				<form action="/gold" method="post">
+					<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type="hidden" name="ninja[building]" value="farm" />
+					<input type="submit" value="Find Gold">
+				</form>
+			</div>
+			<div class="box">
+				<h3>Cave</h3>
+				<p>(earns 5-10 gold)</p>
+				<form action="/gold" method="post">
+					<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type="hidden" name="ninja[building]" value="cave"/>
+					<input type="submit" value="Find Gold">
+				</form>
+			</div>
+			<div class="box">
+				<h3>Home</h3>
+				<p>(earns 2-5 gold)</p>
+				<form action="/gold" method="post">
+					<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type="hidden" name="ninja[building]" value="house"/>
+					<input type="submit" value="Find Gold">
+				</form>
+			</div>
+			<div class="box">
+				<h3>Casino</h3>
+				<p>(earns/loses 0-50 gold)</p>
+				<form action="/gold" method="post">
+					<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type="hidden" name="ninja[building]" value="casino"/>
+					<input type="submit" value="Find Gold">
+				</form>
+			</div>
+		</div>
+
+		<div id="activity">
+			<h3>Activities:</h3>
+			<% for i in session[:activity] %>
+				<p><%= i %></p>
+			<% end %>
+  				
+		</div>
+	</body>
+</html>
