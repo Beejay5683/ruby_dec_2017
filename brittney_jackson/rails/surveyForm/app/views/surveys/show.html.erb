@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Survey Results</title>
+	</head>
+
+	<body>
+		<h1>Survey Results</h1>
+
+		<h4><%= flash[:success] %></h4>
+
+		<table>
+			<tr>
+				<td>Your Name: </td>
+				<td><%= @result['name'] %></td>
+			</tr>
+			<tr>
+				<td>Dojo Location: </td>
+				<td><%= @result['location'] %></td>
+			</tr>
+			<tr>
+				<td>Favorite Language: </td>
+				<td><%= @result['language'] %></td>
+			</tr>
+			<tr>
+				<td>Comment (optional): </td>
+				<td><%= @result['comment'] %></td>
+			</tr>
+		</table>
+		<form action="/surveys/" method="get" >
+			<input type="submit"  value="Go Back">
+		</form>
+	</body>
+</html>
