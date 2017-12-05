@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coding Dojo Locations</title>
+	</head>
+	<body>
+		<% if flash[:messages] %>
+			<h3><%= flash[:messages] %> </h3>
+		<% end %>
+
+		<h1>Listing <%= @count %> dojos</h1>
+		<table>
+			<thead>
+				<th>CD Branch</th>
+				<th>Street</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Actions</th>
+			</thead>
+			<%  @dojos.each do |dojo| %>
+			<tr>
+				<td> <%= dojo.branch %> </td>
+				<td> <%= dojo.street %> </td>
+				<td> <%= dojo.city %> </td>
+				<td> <%= dojo.state %> </td>
+				<td> <a href="/dojos/<%= dojo.id %>">Show</a> | <a href="/dojos/<%= dojo.id %>/edit">Edit</a> | <a href="/dojos/destroy/<%= dojo.id %>">Destroy</a> </td>
+			</tr>
+			<% end %>
+		</table>
+		<a href="/dojos/new">New Dojo</a>
+
+	</body>
+</html>

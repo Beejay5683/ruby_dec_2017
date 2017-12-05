@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Check out this Dojo</title>
+	</head>
+	<body>
+
+		<div id="show">
+			<h1> <%= @dojo.branch %> </h1>
+			<h3> <%= @dojo.street %> </h3>
+			<h3> <%= @dojo.city %> </h3>
+			<h3> <%= @dojo.state %> </h3>
+		</div>
+		<a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/edit">Edit</a>
+
+	</body>
+</html>

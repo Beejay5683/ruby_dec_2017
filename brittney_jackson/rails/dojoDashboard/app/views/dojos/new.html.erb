@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add a New Dojo</title>
+	</head>
+	<body>
+		<% if flash[:errors] %>
+			<h3><%= flash[:errors] %> </h3>
+		<% end %>
+		<form action="/dojos/create/" method="post">
+			<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+			<label>Branch:</label>
+    		<input type='text' name='dojo[branch]' placeholder='Branch' />
+    		<label>Street:</label>
+    		<input type='text' name='dojo[street]' placeholder='Street' />
+    		<label>City:</label>
+    		<input type='text' name='dojo[city]' placeholder='City' />
+    		<label>State:</label>
+    		<input type='text' name='dojo[state]' placeholder='State' />
+			<input type='submit' value='Create' />
+		</form>
+
+		<a href="/dojos">Home</a> 
+
+	</body>
+</html>
