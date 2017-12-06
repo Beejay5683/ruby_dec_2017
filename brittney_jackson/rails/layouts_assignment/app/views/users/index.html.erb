@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		
+		<h3>All Users</h3>
+
+		<table>
+			<thead>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Favorite Language</th>
+			</thead>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.first_name %></td>
+				<td><%= user.last_name %></td>
+				<td><%= user.favorite_language %></td>
+			</tr>
+			<% end %>
+		</table>
+
+
+		<h3>New User</h3>
+
+		<form action="" method="post">
+			<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+			<label>First Name</label>
+			<input type="text" name="user[]"/>
+			<label>Last Name</label>
+			<input type="text" name="user[]"/>
+			<label>Favorite Language</label>
+			<input type="text" name="user[]"/>
+			<input type='submit' value='Add User'/>
+		</form>
+
+		<button><a href="/posts"> All Posts</a></button>
+
+	</body>
+</html>

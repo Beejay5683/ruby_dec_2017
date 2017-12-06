@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+		<h2>All Posts</h2>
+
+		<table>
+			<thead>
+				<th>Title</th>
+				<th>Content</th>
+				<th>Author</th>
+			</thead>
+			<% @posts.each do |post| %>
+			<tr>
+				<td><%= post.title %></td>
+				<td><%= post.content %></td>
+				<td><%= post.user.first_name %> <%= post.user.last_name %></td>
+			</tr>
+			<% end %>
+		</table>
+
+		<h2>New Post</h2>
+
+		<form action="" method="post">
+			<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+			<label>Title</label>
+			<input type="text" name="post[title]">
+			<label>Content</label>
+			<input type="textarea" name="post[content]">
+			<label>Author</label>
+			<select type="text" name="post[user_id]">
+				<% @users.each do |user| %>
+				<option value="<%= user.id %>"><%= user.first_name %> <%= user.last_name %></option>
+				<% end %>
+			</select>
+			<button type="submit">Submit</button>
+		</form>
+
+		<h2>Go to users page</h2>
+		<button><a href="/users"> All Users </a></button>
+
+
+	</body>
+</html>
