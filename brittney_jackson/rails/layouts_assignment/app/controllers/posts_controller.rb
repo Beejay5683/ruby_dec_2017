@@ -3,12 +3,11 @@ class PostsController < ApplicationController
   def index
   	@users = User.all
   	@posts = Post.all
-
-  	render 'index'
+    render layout: "three_column"
   end
 
   def create
-	posts = Post.create(user_params)
+	posts = Post.create(post_params)
 
   	redirect_to '/posts'
 

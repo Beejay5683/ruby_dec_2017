@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
-  	render 'index'
+  	render layout: "two_column"
   end
 
   def create
