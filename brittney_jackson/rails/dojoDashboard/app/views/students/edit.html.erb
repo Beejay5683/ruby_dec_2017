@@ -1,0 +1,31 @@
+<h1>Students#edit</h1>
+<p>Find me in app/views/students/edit.html.erb</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit <%= @info.first_name %></title>
+	</head>
+	<body>
+		<h2>Edit <%= @info.first_name %></h2>
+
+		<form action="/dojos/<%= @info.dojo.id %>/students/<%= @info.id %>" method="post">
+			<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+			<label>First Name:</label>
+    		<input type='text' name='student[first_name]' value='<%= @info.first_name %>' />
+    		<label>Last Name:</label>
+    		<input type='text' name='student[last_name]' value='<%= @info.last_name %>' />
+    		<label>Email:</label>
+    		<input type='text' name='student[email]' value='<%= @info.email %>' />
+    		<select type="text" name='student[dojo]' >
+				<option value="9">Dallas</option>
+				<option value="2">San Jose</option>
+				<option value="1">Seattle</option>
+				<option value="3">Burbank</option>
+				<option value="10">Orlando</option>
+			</select><br>
+			<input type='submit' value='Update' />
+		</form>
+
+		<a href="/dojos">Home</a> | <a href="/dojos/<%= @info.dojo.id %>/students">Show</a>
+	</body>
+</html>

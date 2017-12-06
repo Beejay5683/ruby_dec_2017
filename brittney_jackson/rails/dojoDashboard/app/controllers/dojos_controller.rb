@@ -14,9 +14,10 @@ class DojosController < ApplicationController
   	@create = Dojo.create(dojo_params)
   	
   	flash[:messages] = 'Your Dojo was successfully added to the database'
+    errors =[]
   	if errors
   		flash[:errors] = errors
-  		redirect_to '/dojos/new'
+  		return redirect_to '/dojos/new'
   	end
   	return redirect_to '/dojos'
   end
