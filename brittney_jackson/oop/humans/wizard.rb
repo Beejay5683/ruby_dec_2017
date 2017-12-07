@@ -13,9 +13,10 @@ class Wizard < Human
 	end
 
 	def fireball(obj)
-		obj.health -= 20
-		puts 'I got ya!'
-
+		if obj.class.ancestors.include?(Human)
+			obj.health -= 20
+			puts 'I got ya!'
+		end
 	end
 end
 

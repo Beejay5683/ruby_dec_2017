@@ -7,9 +7,10 @@ class Ninja < Human
 	end
 
 	def steal(obj)
-		obj.attack
-		@health += 10
-
+		if obj.class.ancestors.include?(Human)
+			attack(obj)
+			@health += 10
+		end
 	end 
 
 	def get_away
