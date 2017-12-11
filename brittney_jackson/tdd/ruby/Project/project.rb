@@ -1,11 +1,13 @@
 ##### Project Assignment #####
 
 class Project
-    attr_reader :name, :description
-  
-    def initialize(name, description)
+  attr_accessor :name, :description, :owner
+  attr_reader :tasks
+    def initialize name, description, owner
       @name = name
       @description = description
+      @owner = owner
+      @tasks = []
     end
   
     def elevator_pitch
