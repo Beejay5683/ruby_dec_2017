@@ -1,0 +1,14 @@
+
+
+
+<form action="<%= userss_path  %>" method="patch">
+	<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/><br>
+<label>Name:</label>
+<input type='text' name='userss[name]' value='<%= @user.name %>' /><br>
+
+<label>Email:</label>
+<input type='text' name='userss[email]' value='<%= @user.email %>' /><br>
+
+
+<input type='submit' value='Edit User' />
+</form>
