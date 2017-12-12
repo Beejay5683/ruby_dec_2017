@@ -1,0 +1,23 @@
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %> </p>
+	<% end %>
+<% end %>
+
+<form action="<%= userss_index_path %>" method="post">
+	<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/><br>
+<label>Name:</label>
+<input type='text' name='userss[name]' placeholder='Name' /><br>
+
+<label>Email:</label>
+<input type='text' name='userss[email]' placeholder='Email' /><br>
+
+<label>Password:</label>
+<input type='password' name='userss[password]' placeholder='Password' /><br>
+
+<label>Password Confirmation:</label>
+<input type='password' name='userss[password_confirmation]' placeholder='Password Confirmation' /><br>
+
+<input type='submit' value='Register' />
+</form>
