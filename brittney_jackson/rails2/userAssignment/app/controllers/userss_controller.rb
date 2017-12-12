@@ -20,6 +20,11 @@ class UserssController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    p params[:id]
+
+    @mysecrets = @user.secrets
+    p @mysecrets
+    @mylikes = @user.secrets_liked
 
   end
 
@@ -29,18 +34,9 @@ class UserssController < ApplicationController
   end
 
   def update
-  	edit = User.find(params[:id]).update(user_params)
-  	edit.save
-
-  	# p user_params
-
-  	# if edit.valid?
-  	# 	edit.save
-  	# 	return redirect_to userss_path user.id 
-  	# elsif
-  	#   	flash[:errors] = user.errors.full_messages
-  	# 	return redirect_to :back
-  	# end
+  	user = User.find(params[:id]).update(user_params)
+  	p user_params
+  	return redirect_to userss_path session[:user_id] 
   end
 
   private

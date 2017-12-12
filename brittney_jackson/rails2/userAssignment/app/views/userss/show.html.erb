@@ -1,4 +1,48 @@
 
 <h2>Hey <%= @user.name %></h2>
+<button><a href="session_path"></a> Log Out</button>
 
 <h3><a href="<%= edit_userss_path %>">Edit User</a></h3>
+<hr>
+
+<h3>New Secret</h3>
+<form action="/secrets" method="post">
+	<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+	<input type="textarea" name="secrets[content]" placeholder="Enter content here" />
+	<input type="submit" name="submit" value="Whisper Secret" />
+</form>
+
+<h2>Secrets</h2>
+
+<table>
+	<% @mysecrets.each do |secret| %>
+	<tr>
+  		<td> <%= secret.content %> </td>
+  		<td> | </td>
+  		<td> <%= secret.likes.count %> likes</td>
+  		<td> 
+  			<form action="/secrets" method="post">
+				<input type ='hidden' name='_method' value='delete'/>
+				<input type ='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
+  				<button name="secrets" value="<%= secret.id %>">Delete</button> 
+  			</form>
+
+  		</td>
+	</tr>
+	<% end %>
+
+</table>
+<table>
+	<% @mylikes.each do |likes| %>
+	<tr>
+  		<td> <%= like.content %> </td>
+  		<td> | </td>
+  		<td> <%= likes.count %> </td>
+
+ 
+	</tr>
+	<% end %>
+
+	<a href="<%= secrets_path %>">View all secrets</a>
+
+</table>
