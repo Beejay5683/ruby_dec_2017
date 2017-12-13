@@ -2,7 +2,6 @@
 <h2>Hey <%= @user.name %></h2>
 <button><a href="session_path"></a> Log Out</button>
 
-<h3><a href="<%= edit_userss_path %>">Edit User</a></h3>
 <hr>
 
 <h3>New Secret</h3>
@@ -12,7 +11,8 @@
 	<input type="submit" name="submit" value="Whisper Secret" />
 </form>
 
-<h2>Secrets</h2>
+<h2>My Secrets</h2>
+
 
 <table>
 	<% @mysecrets.each do |secret| %>
@@ -31,18 +31,18 @@
 	</tr>
 	<% end %>
 
-</table>
+</table><br>
+<a href="<%= secrets_path %>">View all secrets</a>
+<h2>Secrets Liked</h2>
 <table>
-	<% @mylikes.each do |likes| %>
+	<% @user.likes.each do |like| %>
 	<tr>
-  		<td> <%= like.content %> </td>
+  		<td> <%= like.secret.content %> </td>
   		<td> | </td>
-  		<td> <%= likes.count %> </td>
+  		<td> <%= like.secret.likes.count %> likes</td>
 
  
 	</tr>
 	<% end %>
-
-	<a href="<%= secrets_path %>">View all secrets</a>
 
 </table>

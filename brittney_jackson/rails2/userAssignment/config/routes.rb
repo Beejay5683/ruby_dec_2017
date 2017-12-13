@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'secrets/index'
 
   resources :userss, except: [:index]
 
@@ -8,5 +7,7 @@ Rails.application.routes.draw do
 	get 'secrets' => 'secrets#index'
 	post 'secrets' => 'secrets#create'
 	delete 'secrets'=> 'secrets#delete'
+	post 'likes' => 'likes#create'
+	delete 'likes' => 'likes#destroy'
 
 end

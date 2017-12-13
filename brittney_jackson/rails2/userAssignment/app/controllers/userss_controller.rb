@@ -20,12 +20,8 @@ class UserssController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    p params[:id]
-
     @mysecrets = @user.secrets
-    p @mysecrets
-    @mylikes = @user.secrets_liked
-
+  
   end
 
   def edit
